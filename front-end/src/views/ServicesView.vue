@@ -138,7 +138,7 @@ const process = [
 </script>
 
 <style scoped>
-.page-header { padding: 8rem 0 4rem; background: linear-gradient(135deg, #0d1b2a, #1e3a5f); text-align: center; color: white; }
+.page-header { padding: 8rem 0 4rem; background: linear-gradient(135deg, #fafafa, hsl(208, 73%, 57%), #cadfff); text-align: center; color: white; }
 .page-header h1 { font-family: "Space Grotesk", sans-serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; margin: 0 0 1rem; }
 .page-header p { font-size: 1.2rem; color: #94a3b8; max-width: 600px; margin: 0 auto; }
 

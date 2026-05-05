@@ -36,10 +36,10 @@
         <div class="footer-links">
           <h4>Contact</h4>
           <ul>
-            <li>hello@bluebrains.dev</li>
-            <li>+1 (555) 123-4567</li>
-            <li>123 Tech Street, Suite 100</li>
-            <li>San Francisco, CA 94102</li>
+            <li>bluebrains@softwares.com</li>
+            <li>+27 66 038 2755</li>
+            <li>10122 liwa street philippi east</li>
+            <li>Cape Town, RSA 7750</li>
           </ul>
         </div>
       </div>
