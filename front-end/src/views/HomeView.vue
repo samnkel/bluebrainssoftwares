@@ -166,15 +166,24 @@ import ServiceCard from "../components/ServiceCard.vue"
 import StatCounter from "../components/StatCounter.vue"
 
 const featuredProjects = ref([
-  { title: "TechStart Platform", desc: "Modern SaaS landing page and dashboard with real-time analytics.", color: "linear-gradient(135deg,#1e88e5,#0d1b2a)", icon: "TS", tag: "Web Development" },
-  { title: "GrowthLabs CRM", desc: "Custom CRM with automated workflows and advanced reporting.", color: "linear-gradient(135deg,#22c55e,#16a34a)", icon: "GL", tag: "Software" },
-  { title: "Bloom Boutique", desc: "Beautiful e-commerce store with seamless checkout experience.", color: "linear-gradient(135deg,#f472b6,#db2777)", icon: "BB", tag: "E-commerce" },
+ {  "title": "Website",
+    "desc": "a website for a non-profit organization focused on environmental conservation, featuring a clean design and interactive elements to engage visitors and encourage fundraising.",
+    "icon": "BGSA",
+    "color": "linear-gradient(135deg, #67abf5, #76b1ff)"
+  },
+  {
+    "title": "Portfolio",
+    "desc": "a professional portfolio website for a creative designer, showcasing their work and skills in a visually appealing manner.",
+    "icon": "SM",
+    "color": "linear-gradient(135deg, green, #42a5f5)"
+  },
+
 ])
 
 const testimonials = ref([
-  { quote: "BlueBrains transformed our online presence completely. Our website traffic increased by 300% and conversions doubled within the first quarter.", name: "Sarah Mitchell", role: "CEO, TechStart Inc.", initials: "SM", avatarColor: "linear-gradient(135deg,#1e88e5,#0d1b2a)" },
-  { quote: "The team delivered beyond our expectations. Their attention to detail and technical expertise made our complex project feel effortless.", name: "Michael Chen", role: "CTO, GrowthLabs", initials: "MC", avatarColor: "linear-gradient(135deg,#22c55e,#16a34a)" },
-  { quote: "Working with BlueBrains was a game-changer for our business. They understood our vision and brought it to life perfectly.", name: "Emily Rodriguez", role: "Founder, Bloom Boutique", initials: "ER", avatarColor: "linear-gradient(135deg,#f472b6,#db2777)" },
+  
+  { quote: "The team delivered beyond our expectations. Their attention to detail and technical expertise made our complex project feel effortless.", name: "Samnkelisiwe Mpiyonke", role: "Founde blebrains Softwares", initials: "SM", avatarColor: "linear-gradient(135deg,#22c55e,#16a34a)" },
+ 
 ])
 </script>
 

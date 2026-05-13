@@ -9,7 +9,6 @@ const router = createRouter({
     { path: '/about', name: 'about', component: () => import('../views/AboutView.vue') },
     { path: '/portfolio', name: 'portfolio', component: () => import('../views/PortfolioView.vue') },
     { path: '/contact', name: 'contact', component: () => import('../views/ContactView.vue') },
-    { path: '/resume', name: 'resume', component: () => import('../views/ResumeView.vue') },
   ],
   scrollBehavior() {
     return { top: 0 }

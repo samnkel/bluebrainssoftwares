@@ -15,7 +15,7 @@
             <div class="info-items">
               <div class="item">
                 <strong>Email</strong>
-                <span>bluebrains@softwares.com</span>
+                <span>bbsoftwares@outlook.com</span>
               </div>
               <div class="item">
                 <strong>Phone</strong>

@@ -24,13 +24,19 @@
 
 <script setup>
 const projects = [
-  { title: "TechStart Platform", desc: "Modern SaaS landing page and dashboard.", color: "linear-gradient(135deg,#1e88e5,#0d1b2a)", icon: "TS" },
-  { title: "GrowthLabs CRM", desc: "Custom CRM with automated workflows.", color: "linear-gradient(135deg,#22c55e,#16a34a)", icon: "GL" },
-  { title: "Bloom Boutique", desc: "Beautiful e-commerce store.", color: "linear-gradient(135deg,#f472b6,#db2777)", icon: "BB" },
-  { title: "HealthConnect", desc: "Telemedicine platform.", color: "linear-gradient(135deg,#0d9488,#134e4a)", icon: "HC" },
-  { title: "FinTrack", desc: "Financial analytics dashboard.", color: "linear-gradient(135deg,#6366f1,#4f46e5)", icon: "FT" },
-  { title: "FoodieHub", desc: "Food delivery platform.", color: "linear-gradient(135deg,#f59e0b,#d97706)", icon: "FH" }
-];
+ {  "title": "Website",
+    "desc": "a website for a non-profit organization focused on environmental conservation, featuring a clean design and interactive elements to engage visitors and encourage fundraising.",
+    "icon": "BGSA",
+    "color": "linear-gradient(135deg, #67abf5, #76b1ff)"
+  },
+  {
+    "title": "Portfolio",
+    "desc": "a professional portfolio website for a creative designer, showcasing their work and skills in a visually appealing manner.",
+    "icon": "SM",
+    "color": "linear-gradient(135deg, green, #42a5f5)"
+  },
+
+]
 </script>
 
 <style scoped>
