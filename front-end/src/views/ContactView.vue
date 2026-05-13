@@ -94,7 +94,7 @@ const submit = async () => {
 <style scoped>
 .page-header {
   padding: 8rem 0 4rem;
-  background: linear-gradient(135deg, #0d1b2a, #1e3a5f);
+  background: linear-gradient(135deg, #fafafa, hsl(208, 73%, 57%), #cadfff);
   text-align: center;
   color: white;
 }
