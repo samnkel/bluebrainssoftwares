@@ -35,17 +35,15 @@
         <div class="footer-links">
           <h4>Contact</h4>
           <ul>
-<<<<<<< HEAD
+
             <li>bbsoftwares@outlook.com</li>
             <li>066 038 2775</li>
             <li>10122 liwa street, philippi east</li>
             <li>Cape Town, WP</li>
-=======
             <li>bluebrains@softwares.com</li>
             <li>+27 66 038 2755</li>
             <li>10122 liwa street philippi east</li>
             <li>Cape Town, RSA 7750</li>
->>>>>>> 6ad1b2f5e117f009c06d007d76636e6d25b30027
           </ul>
         </div>
       </div>
