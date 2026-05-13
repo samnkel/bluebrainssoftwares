@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "dev": "cd front-end && npm run dev"
+    "dev": "cd front-end && npm run dev",
+    "build": "cd front-end && npm run build"
   },
   "dependencies": {
     "vue": "^3.5.33"
