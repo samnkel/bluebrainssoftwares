@@ -159,6 +159,7 @@
   </div>
 </template>
 
+
 <script setup>
 import { ref } from 'vue'
 import SectionTitle from "../components/SectionTitle.vue"
@@ -179,6 +180,7 @@ const featuredProjects = ref([
   },
 
 ])
+
 
 const testimonials = ref([
   
@@ -670,7 +672,40 @@ const testimonials = ref([
   }
 }
 
+@media (max-width: 1024px) {
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
+  .hero {
+    padding: 4rem 1.5rem 3rem;
+  }
+  .orb-1 {
+    width: 340px;
+    height: 340px;
+    right: -18%;
+    top: -18%;
+  }
+  .orb-2 {
+    width: 280px;
+    height: 280px;
+    bottom: -18%;
+    left: -18%;
+  }
+  .orb-3 {
+    width: 240px;
+    height: 240px;
+    top: 34%;
+    left: 18%;
+  }
   .hero-stats {
     flex-direction: column;
     gap: 1.5rem;
@@ -698,6 +733,30 @@ const testimonials = ref([
   }
   .cta-box h2 {
     font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 3rem 1rem 2.5rem;
+  }
+  .hero-title {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+  .hero-cta {
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+  .hero-stat {
+    width: 100%;
+  }
+  .projects-grid,
+  .testimonials-grid {
+    grid-template-columns: 1fr;
   }
 }
 </style>

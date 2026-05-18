@@ -67,13 +67,13 @@
 .footer-container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding-inline: clamp(1rem, 4vw, 2rem);
 }
 
 .footer-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 3rem;
+  gap: clamp(1.5rem, 2vw, 3rem);
   margin-bottom: 3rem;
 }
 
@@ -206,9 +206,16 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+  .footer-brand p,
+  .footer-links {
+    max-width: 100%;
+  }
+  .footer-bottom {
+    text-align: left;
   }
 }
 </style>
