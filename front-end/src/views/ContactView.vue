@@ -74,6 +74,7 @@ const submit = async () => {
         from_name: form.value.name,
         from_email: form.value.email,
         message: form.value.message,
+        to_email: import.meta.env.VITE_EMAILJS_TO_EMAIL,
       },
       import.meta.env.VITE_EMAILJS_PUBLIC_KEY
     );
