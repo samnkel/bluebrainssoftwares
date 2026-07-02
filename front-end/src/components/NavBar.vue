@@ -23,7 +23,6 @@
         <li><RouterLink to="/" @click="menuOpen = false">Home</RouterLink></li>
         <li><RouterLink to="/services" @click="menuOpen = false">Services</RouterLink></li>
         <li><RouterLink to="/about" @click="menuOpen = false">About</RouterLink></li>
-        <li><RouterLink to="/portfolio" @click="menuOpen = false">Portfolio</RouterLink></li>
         <li><RouterLink to="/contact" class="nav-cta" @click="menuOpen = false">Get Started</RouterLink></li>
       </ul>
     </div>

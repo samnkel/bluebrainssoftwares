@@ -140,7 +140,7 @@ const process = [
 <style scoped>
 .page-header { padding: 8rem 0 4rem; background: linear-gradient(135deg, #fafafa, hsl(208, 73%, 57%), #cadfff); text-align: center; color: white; }
 .page-header h1 { font-family: "Space Grotesk", sans-serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; margin: 0 0 1rem; }
-.page-header p { font-size: 1.2rem; color: #94a3b8; max-width: 600px; margin: 0 auto; }
+.page-header p { font-size: 1.2rem; color: white; max-width: 600px; margin: 0 auto; }
 
 .services-section { padding: 5rem 0; background: white; }
 .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
@@ -150,7 +150,7 @@ const process = [
 .service-card.featured { border-color: #1e88e5; box-shadow: 0 0 0 1px #1e88e5; }
 .service-icon { width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; font-family: "Space Grotesk", sans-serif; font-size: 1rem; font-weight: 700; }
 .service-card h2 { font-family: "Space Grotesk", sans-serif; font-size: 1.3rem; color: #0d1b2a; margin: 0 0 0.8rem; }
-.service-card p { color: #64748b; line-height: 1.7; margin: 0 0 1.2rem; font-size: 0.95rem; }
+.service-card p { color: #475569; line-height: 1.7; margin: 0 0 1.2rem; font-size: 0.95rem; }
 .service-card ul { list-style: none; padding: 0; margin: 0; }
 .service-card li { color: #334155; font-size: 0.9rem; padding: 0.3rem 0; padding-left: 1.2rem; position: relative; }
 .service-card li::before { content: ""; position: absolute; left: 0; top: 0.65rem; width: 6px; height: 6px; border-radius: 50%; background: #22c55e; }
@@ -161,12 +161,12 @@ const process = [
 .process-step:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0,0,0,0.06); }
 .num { font-family: "Space Grotesk", sans-serif; font-size: 2rem; font-weight: 800; color: #e2e8f0; line-height: 1; display: block; margin-bottom: 1rem; }
 .process-step h3 { font-family: "Space Grotesk", sans-serif; font-size: 1.1rem; color: #0d1b2a; margin: 0 0 0.5rem; }
-.process-step p { color: #64748b; font-size: 0.9rem; line-height: 1.7; margin: 0; }
+.process-step p { color: #475569; font-size: 0.9rem; line-height: 1.7; margin: 0; }
 
 .cta-section { padding: 5rem 0; background: white; }
 .cta-box { text-align: center; max-width: 700px; margin: 0 auto; padding: 4rem 3rem; background: linear-gradient(135deg, #0d1b2a, #1e3a5f); border-radius: 24px; color: white; }
 .cta-box h2 { font-family: "Space Grotesk", sans-serif; font-size: 2.2rem; margin: 0 0 1rem; }
-.cta-box p { color: #94a3b8; font-size: 1.1rem; margin: 0 0 2rem; }
+.cta-box p { color: white; font-size: 1.1rem; margin: 0 0 2rem; }
 .btn-primary { display: inline-flex; align-items: center; padding: 1rem 2.5rem; border-radius: 12px; font-weight: 600; text-decoration: none; font-size: 1.1rem; background: #1e88e5; color: white; transition: all 0.3s ease; }
 .btn-primary:hover { background: #1565c0; transform: translateY(-3px); }
 

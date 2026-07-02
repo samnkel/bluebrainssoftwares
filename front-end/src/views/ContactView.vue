@@ -15,7 +15,7 @@
             <div class="info-items">
               <div class="item">
                 <strong>Email</strong>
-                <span>bbsoftwares@outlook.com</span>
+                <span>samnkelisiwempiyonke@gmail.com</span>
               </div>
               <div class="item">
                 <strong>Phone</strong>
@@ -38,6 +38,10 @@
                 <input v-model="form.email" type="email" placeholder="your@email.com" required />
               </div>
               <div class="group">
+                <label>Phone (Optional)</label>
+                <input v-model="form.phone" type="tel" placeholder="Your phone number" />
+              </div>
+              <div class="group">
                 <label>Message</label>
                 <textarea v-model="form.message" rows="5" placeholder="Tell us about your project..." required></textarea>
               </div>
@@ -56,7 +60,7 @@
 import { ref } from "vue";
 import emailjs from "emailjs-com";
 
-const form = ref({ name: "", email: "", message: "" });
+const form = ref({ name: "", email: "", phone: "", message: "" });
 const sending = ref(false);
 const sent = ref(false);
 const error = ref(false);
@@ -73,6 +77,7 @@ const submit = async () => {
       {
         from_name: form.value.name,
         from_email: form.value.email,
+        from_phone: form.value.phone,
         message: form.value.message,
         to_email: import.meta.env.VITE_EMAILJS_TO_EMAIL,
       },
@@ -80,7 +85,7 @@ const submit = async () => {
     );
 
     sent.value = true;
-    form.value = { name: "", email: "", message: "" };
+    form.value = { name: "", email: "", phone: "", message: "" };
     setTimeout(() => (sent.value = false), 5000);
   } catch (err) {
     console.error("EmailJS Error:", err);
@@ -107,7 +112,7 @@ const submit = async () => {
 }
 .page-header p {
   font-size: 1.2rem;
-  color: #94a3b8;
+  color: white;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -133,7 +138,7 @@ const submit = async () => {
   margin: 0 0 1rem;
 }
 .info > p {
-  color: #64748b;
+  color: #475569;
   line-height: 1.7;
   margin: 0 0 2rem;
 }
@@ -148,7 +153,7 @@ const submit = async () => {
   font-size: 1rem;
 }
 .item span {
-  color: #64748b;
+  color: #475569;
   font-size: 0.9rem;
 }
 .form-wrapper {

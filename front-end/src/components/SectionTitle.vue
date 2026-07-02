@@ -53,7 +53,7 @@ defineProps({
 
 .section-title p {
   font-size: 1.1rem;
-  color: #64748b;
+  color: #475569;
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.7;

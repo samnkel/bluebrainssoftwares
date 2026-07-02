@@ -28,7 +28,6 @@
           <h4>Company</h4>
           <ul>
             <li><RouterLink to="/about">About Us</RouterLink></li>
-            <li><RouterLink to="/portfolio">Portfolio</RouterLink></li>
             <li><RouterLink to="/contact">Contact</RouterLink></li>
           </ul>
         </div>
@@ -36,11 +35,11 @@
           <h4>Contact</h4>
           <ul>
 
-            <li>bbsoftwares@outlook.com</li>
+            <li>samnkelisiwempiyonke@gmail.com</li>
             <li>066 038 2775</li>
             <li>10122 liwa street, philippi east</li>
             <li>Cape Town, WP</li>
-            <li>bluebrains@softwares.com</li>
+            <li>samnkelisiwempiyonke@gmail.com</li>
             <li>+27 66 038 2755</li>
             <li>10122 liwa street philippi east</li>
             <li>Cape Town, RSA 7750</li>

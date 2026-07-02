@@ -191,7 +191,7 @@
 
 .page-header p {
   font-size: 1.2rem;
-  color: #94a3b8;
+  color: white;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -275,7 +275,7 @@
 }
 
 .contact-item span {
-  color: #64748b;
+  color: #475569;
   font-size: 0.9rem;
 }
 
@@ -296,7 +296,7 @@
 
 .skill-category h4 {
   font-size: 0.85rem;
-  color: #64748b;
+  color: #475569;
   margin: 0 0 0.6rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -340,7 +340,7 @@
 }
 
 .section > p {
-  color: #64748b;
+  color: #475569;
   line-height: 1.8;
   margin: 0;
 }
@@ -380,7 +380,7 @@
 .experience-list {
   margin: 0;
   padding-left: 1.2rem;
-  color: #64748b;
+  color: #475569;
   line-height: 1.8;
 }
 
@@ -414,7 +414,7 @@
 }
 
 .education-item p {
-  color: #64748b;
+  color: #475569;
   font-size: 0.9rem;
   margin: 0;
 }
@@ -439,7 +439,7 @@
 }
 
 .cert-item span {
-  color: #64748b;
+  color: #475569;
   font-size: 0.85rem;
 }
 

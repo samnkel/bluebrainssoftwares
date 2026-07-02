@@ -15,24 +15,9 @@
         <p class="hero-subtitle">We build powerful websites, software systems, and online businesses that drive growth and deliver results.</p>
         <div class="hero-cta">
           <RouterLink to="/contact" class="btn-primary">Start Your Project</RouterLink>
-          <RouterLink to="/portfolio" class="btn-secondary">View Our Work</RouterLink>
         </div>
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <strong>4+</strong>
-            <span>Projects Delivered</span>
-          </div>
-          <div class="hero-stat-divider"></div>
-          <div class="hero-stat">
-            <strong>98%</strong>
-            <span>Client Satisfaction</span>
-          </div>
-          <div class="hero-stat-divider"></div>
-          <div class="hero-stat">
-            <strong>1+</strong>
-            <span>Years Experience</span>
-          </div>
-        </div>
+
+
       </div>
     </section>
 
@@ -90,61 +75,7 @@
       </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats-section">
-      <div class="container">
-        <div class="stats-grid">
-          <StatCounter :end="4" suffix="+" label="Projects Completed" />
-          <StatCounter :end="2" suffix="+" label="Happy Clients" />
-          <StatCounter :end="1" suffix="+" label="Team Members" />
-          <StatCounter :end="99" suffix="%" label="Uptime Guaranteed" />
-        </div>
-      </div>
-    </section>
 
-    <!-- Featured Projects Section -->
-    <section class="projects-section">
-      <div class="container">
-        <SectionTitle badge="Portfolio" title="Featured Projects" subtitle="See how we have helped businesses transform their digital presence." />
-        <div class="projects-grid">
-          <div class="project-card" v-for="p in featuredProjects" :key="p.title">
-            <div class="project-image" :style="{ background: p.color }">
-              <span class="project-icon">{{ p.icon }}</span>
-            </div>
-            <div class="project-info">
-              <span class="project-tag">{{ p.tag }}</span>
-              <h3>{{ p.title }}</h3>
-              <p>{{ p.desc }}</p>
-            </div>
-          </div>
-        </div>
-        <div class="projects-cta">
-          <RouterLink to="/portfolio" class="btn-secondary">View All Projects</RouterLink>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials-section">
-      <div class="container">
-        <SectionTitle badge="Testimonials" title="What Our Clients Say" subtitle="Do not just take our word for it, hear from the people we have worked with." />
-        <div class="testimonials-grid">
-          <div class="testimonial-card" v-for="t in testimonials" :key="t.name">
-            <div class="testimonial-stars">
-              <svg v-for="n in 5" :key="n" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <p class="testimonial-text">"{{ t.quote }}"</p>
-            <div class="testimonial-author">
-              <div class="author-avatar" :style="{ background: t.avatarColor }">{{ t.initials }}</div>
-              <div class="author-info">
-                <strong>{{ t.name }}</strong>
-                <span>{{ t.role }}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- CTA Section -->
     <section class="cta-section">
@@ -161,32 +92,8 @@
 
 
 <script setup>
-import { ref } from 'vue'
 import SectionTitle from "../components/SectionTitle.vue"
 import ServiceCard from "../components/ServiceCard.vue"
-import StatCounter from "../components/StatCounter.vue"
-
-const featuredProjects = ref([
- {  "title": "Website",
-    "desc": "a website for a non-profit organization focused on environmental conservation, featuring a clean design and interactive elements to engage visitors and encourage fundraising.",
-    "icon": "BGSA",
-    "color": "linear-gradient(135deg, #67abf5, #76b1ff)"
-  },
-  {
-    "title": "Portfolio",
-    "desc": "a professional portfolio website for a creative designer, showcasing their work and skills in a visually appealing manner.",
-    "icon": "SM",
-    "color": "linear-gradient(135deg, green, #42a5f5)"
-  },
-
-])
-
-
-const testimonials = ref([
-  
-  { quote: "The team delivered beyond our expectations. Their attention to detail and technical expertise made our complex project feel effortless.", name: "Samnkelisiwe Mpiyonke", role: "Founde blebrains Softwares", initials: "SM", avatarColor: "linear-gradient(135deg,#22c55e,#16a34a)" },
- 
-])
 </script>
 
 <style scoped>
@@ -278,7 +185,7 @@ const testimonials = ref([
 
 .hero-subtitle {
   font-size: 1.2rem;
-  color: #64748b;
+  color: #475569;
   max-width: 600px;
   margin: 0 auto 2.5rem;
   line-height: 1.7;
@@ -353,7 +260,7 @@ const testimonials = ref([
 
 .hero-stat span {
   font-size: 0.85rem;
-  color: #64748b;
+  color: #475569;
 }
 
 .hero-stat-divider {
@@ -442,7 +349,7 @@ const testimonials = ref([
 }
 
 .process-card p {
-  color: #64748b;
+  color: #475569;
   font-size: 0.9rem;
   line-height: 1.7;
   margin: 0;
@@ -472,56 +379,6 @@ const testimonials = ref([
   gap: 2rem;
 }
 
-/* Projects */
-.projects-section {
-  padding: 6rem 0;
-  background: white;
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-bottom: 3rem;
-}
-
-.project-card {
-  background: white;
-  border-radius: 20px;
-  overflow: hidden;
-  border: 1px solid #e2e8f0;
-  transition: all 0.3s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-}
-
-.project-image {
-  height: 180px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.project-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 1.2rem;
-  font-weight: 700;
-}
-
-.project-info {
-  padding: 1.5rem;
-}
 
 .project-tag {
   display: inline-block;
@@ -542,7 +399,7 @@ const testimonials = ref([
 }
 
 .project-info p {
-  color: #64748b;
+  color: #475569;
   font-size: 0.9rem;
   line-height: 1.6;
   margin: 0;
@@ -626,7 +483,7 @@ const testimonials = ref([
 }
 
 .author-info span {
-  color: #64748b;
+  color: #475569;
   font-size: 0.85rem;
 }
 
@@ -654,7 +511,7 @@ const testimonials = ref([
 }
 
 .cta-box p {
-  color: #64748b;
+  color: #475569;
   font-size: 1.1rem;
   margin: 0 0 2rem;
 }

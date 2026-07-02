@@ -112,7 +112,7 @@ defineProps({
 }
 
 .service-card p {
-  color: #64748b;
+  color: #475569;
   line-height: 1.7;
   margin: 0 0 1.5rem;
 }
