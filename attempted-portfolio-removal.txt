@@ -1,0 +1,5 @@
+Portfolio removal attempted:
+- Removed /portfolio route from front-end/src/router/index.ts
+- Removed portfolio CTAs and hero/client stats and testimonials from front-end/src/views/HomeView.vue
+- Removed numeric stats from front-end/src/views/AboutView.vue
+- PortfolioView.vue file still exists and should be deleted per instructions.
