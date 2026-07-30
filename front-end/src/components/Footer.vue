@@ -34,11 +34,6 @@
         <div class="footer-links">
           <h4>Contact</h4>
           <ul>
-
-            <li>samnkelisiwempiyonke@gmail.com</li>
-            <li>066 038 2775</li>
-            <li>10122 liwa street, philippi east</li>
-            <li>Cape Town, WP</li>
             <li>samnkelisiwempiyonke@gmail.com</li>
             <li>+27 66 038 2755</li>
             <li>10122 liwa street philippi east</li>
