@@ -1,9 +1,11 @@
 {
+  "name": "bluebrains-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "cd front-end && npm run dev",
-    "build": "cd front-end && npm run build"
-  },
-  "dependencies": {
-    "vue": "^3.5.33"
+    "dev": "npm --prefix react-landing run dev",
+    "build": "npm --prefix react-landing run build",
+    "preview": "npm --prefix react-landing run preview"
   }
 }

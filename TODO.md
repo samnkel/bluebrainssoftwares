@@ -1,8 +1,8 @@
-- [x] Identified portfolio and client-story content in front-end/src/views
-- [x] Removed /portfolio route from front-end/src/router/index.ts
-- [x] Removed portfolio-related CTAs and client-story/testimonials section from front-end/src/views/HomeView.vue
-- [x] Removed numeric projects/clients stats from front-end/src/views/AboutView.vue
-- [x] Delete front-end/src/views/PortfolioView.vue (file removed/emptied)
+# TODO - Make "Start Your Project" buttons scroll to contact form
 
-- [ ] Verify build/typecheck (npm not available in current environment)
-
+- [x] Fix blank screen (SiCss3 -> SiCss) - DONE
+- [x] App.tsx - Import and render `<ContactSection />` after TechnologiesSection - DONE
+- [x] ContactSection.tsx - Add `id="contact"` to outer `<section>` - DONE
+- [x] Hero.tsx - Change "Start Your Project" button href to `#contact` - DONE
+- [x] Navbar.tsx - Change both "Start a Project" buttons href to `#contact` - DONE
+- [x] Verify build passes - IN PROGRESS

@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Digital Solutions — Premium Futuristic SaaS Hero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #050B1D;
+    --bg-2: #081226;
+    --blue: #1E90FF;
+    --cyan: #00D4FF;
+    --white: #FFFFFF;
+    --muted: #94A3B8;
+    --muted-2: #CBD5E1;
+    --glass: rgba(255,255,255,0.06);
+    --glass-2: rgba(13,27,60,0.75);
+    --glass-border: rgba(255,255,255,0.14);
+    --glow-blue: 0 0 40px rgba(30,144,255,0.18);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--white);
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  ::selection { background:rgba(30,144,255,0.35); color:#fff; }
+
+  /* =====================================================
+     NAVBAR
+  ===================================================== */
+  .navbar {
+    position:fixed; top:1.2rem; left:50%; transform:translateX(-50%);
+    z-index:1000; width:min(1180px,94vw);
+    background:rgba(255,255,255,0.94);
+    backdrop-filter:blur(24px) saturate(1.4); -webkit-backdrop-filter:blur(24px) saturate(1.4);
+    border-radius:20px;
+    box-shadow:0 12px 50px rgba(2,6,18,0.35), inset 0 1px 0 rgba(255,255,255,0.6);
+    padding:0.75rem 0.9rem 0.75rem 1.6rem;
+    display:flex; align-items:center; justify-content:space-between; gap:1rem;
+    animation:navDrop .8s cubic-bezier(.2,.8,.2,1) both;
+  }
+  @keyframes navDrop { from { opacity:0; transform:translateX(-50%) translateY(-18px); } to { opacity:1; transform:translateX(-50%) translateY(0); } }
+
+  .nav-links { display:flex; gap:0.4rem; list-style:none; }
+  .nav-links a {
+    position:relative; text-decoration:none; color:#334155; font-weight:500; font-size:0.9rem;
+    padding:0.5rem 0.95rem; border-radius:10px; transition:color .2s, background .2s;
+  }
+  .nav-links a::after {
+    content:''; position:absolute; left:50%; bottom:4px; width:0; height:2px; border-radius:2px;
+    background:linear-gradient(90deg,var(--blue),var(--cyan));
+    transform:translateX(-50%); transition:width .3s ease;
+  }
+  .nav-links a:hover { color:var(--blue); background:rgba(30,144,255,0.06); }
+  .nav-links a:hover::after { width:55%; }
+
+  .nav-btn {
+    background:linear-gradient(135deg,var(--blue),#0a6fd8 60%,var(--cyan));
+    color:#fff; border:none; cursor:pointer;
+    font-weight:600; font-size:0.9rem; padding:0.72rem 1.5rem; border-radius:14px;
+    box-shadow:0 8px 28px rgba(30,144,255,0.45), inset 0 1px 0 rgba(255,255,255,0.25);
+    transition:transform .25s, box-shadow .25s;
+    white-space:nowrap;
+  }
+  .nav-btn:hover { transform:translateY(-2px) scale(1.02); box-shadow:0 14px 36px rgba(30,144,255,0.55); }
+  .nav-btn:active { transform:translateY(0) scale(0.98); }
+
+  /* =====================================================
+     HERO
+  ===================================================== */
+  .hero {
+    position:relative; min-height:100vh; width:100%;
+    display:flex; align-items:center; justify-content:center;
+    padding:8.5rem 2rem 7rem; overflow:hidden;
+    background:
+      radial-gradient(ellipse at 78% 15%, rgba(30,144,255,0.2), transparent 46%),
+      radial-gradient(ellipse at 12% 82%, rgba(0,212,255,0.1), transparent 42%),
+      radial-gradient(ellipse at 45% 115%, rgba(30,144,255,0.12), transparent 55%),
+      linear-gradient(165deg,var(--bg) 0%,var(--bg-2) 52%,#071226 100%);
+  }
+
+  /* grid overlay */
+  .grid-overlay {
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.028) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.028) 1px, transparent 1px);
+    background-size:56px 56px;
+    -webkit-mask-image:radial-gradient(circle at 50% 38%, #000 20%, transparent 82%);
+    mask-image:radial-gradient(circle at 50% 38%, #000 20%, transparent 82%);
+    pointer-events:none;
+    perspective:600px;
+  }
+  .grid-overlay::after {
+    content:''; position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(30,144,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(30,144,255,0.05) 1px, transparent 1px);
+    background-size:56px 56px;
+    transform:rotateX(58deg) scale(1.6); transform-origin:50% 100%;
+    -webkit-mask-image:linear-gradient(to top, transparent, #000 30%, #000 70%, transparent);
+    mask-image:linear-gradient(to top, transparent, #000 30%, #000 70%, transparent);
+  }
+
+  /* glow orbs */
+  .orb { position:absolute; border-radius:50%; filter:blur(6px); pointer-events:none; }
+  .orb-1 { width:520px; height:520px; top:28%; left:-8%; background:radial-gradient(circle, rgba(30,144,255,0.14), transparent 65%); animation:orbFloat 11s ease-in-out infinite; }
+  .orb-2 { width:420px; height:420px; bottom:14%; right:-6%; background:radial-gradient(circle, rgba(0,212,255,0.1), transparent 65%); animation:orbFloat 13s ease-in-out -4s infinite; }
+  .orb-3 { width:260px; height:260px; top:16%; right:22%; background:radial-gradient(circle, rgba(30,144,255,0.12), transparent 70%); animation:orbFloat 9s ease-in-out -2s infinite; }
+  @keyframes orbFloat { 0%,100%{ transform:translateY(0) scale(1); } 50%{ transform:translateY(-26px) scale(1.05); } }
+
+  /* moon */
+  .moon {
+    position:absolute; top:11%; right:12%; width:74px; height:74px; border-radius:50%;
+    background:radial-gradient(circle at 35% 35%, #f8fbff, #c9d8f0 60%, #8fa8cc);
+    box-shadow:0 0 60px 18px rgba(200,220,255,0.28), 0 0 140px 50px rgba(160,195,255,0.12);
+    opacity:0.85; pointer-events:none;
+  }
+  .moon::after {
+    content:''; position:absolute; inset:0; border-radius:50%;
+    background:
+      radial-gradient(circle at 60% 55%, rgba(140,160,190,0.35) 0 8px, transparent 9px),
+      radial-gradient(circle at 32% 68%, rgba(140,160,190,0.28) 0 5px, transparent 6px),
+      radial-gradient(circle at 72% 30%, rgba(140,160,190,0.22) 0 4px, transparent 5px);
+  }
+
+  /* particles canvas */
+  #particles { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:3; }
+
+  /* holographic clouds */
+  .holo-cloud { position:absolute; opacity:0.5; pointer-events:none; filter:drop-shadow(0 0 18px rgba(30,144,255,0.35)); animation:holoDrift 18s ease-in-out infinite alternate; }
+  .holo-cloud svg { width:100%; height:auto; }
+  .hc-1 { width:170px; top:18%; left:10%; animation-delay:-6s; }
+  .hc-2 { width:110px; top:58%; right:9%; animation-delay:-11s; opacity:0.32; }
+  .hc-3 { width:80px; top:74%; left:38%; animation-delay:-3s; opacity:0.25; }
+  @keyframes holoDrift { from { transform:translateY(0) translateX(0); } to { transform:translateY(-22px) translateX(16px); } }
+
+  /* data streams */
+  .streams { position:absolute; inset:0; overflow:hidden; pointer-events:none; z-index:2; }
+  .stream {
+    position:absolute; bottom:6%; width:1px; height:90px; border-radius:2px;
+    background:linear-gradient(to top, transparent, rgba(30,144,255,0.65), rgba(0,212,255,0.85));
+    animation:streamUp linear infinite; opacity:0;
+  }
+  .stream::after {
+    content:''; position:absolute; top:-4px; left:-2px; width:5px; height:5px; border-radius:50%;
+    background:var(--cyan); box-shadow:0 0 10px var(--cyan), 0 0 24px rgba(0,212,255,0.6);
+  }
+  .s1 { left:8%;  animation-duration:7s;  animation-delay:0s; }
+  .s2 { left:17%; animation-duration:9s;  animation-delay:2.2s; }
+  .s3 { left:31%; animation-duration:6.5s; animation-delay:4.4s; }
+  .s4 { left:63%; animation-duration:8s;  animation-delay:1.1s; }
+  .s5 { left:74%; animation-duration:7.5s; animation-delay:5.2s; }
+  .s6 { left:89%; animation-duration:9.5s; animation-delay:3.3s; }
+  @keyframes streamUp {
+    0%   { transform:translateY(70px);   opacity:0; }
+    12%  { opacity:.9; }
+    85%  { opacity:.55; }
+    100% { transform:translateY(-160px); opacity:0; }
+  }
+
+  /* ============ HERO INNER LAYOUT ============ */
+  .hero-inner {
+    position:relative; z-index:10; width:min(1240px,100%);
+    display:grid; grid-template-columns:1.02fr 0.98fr; gap:2.5rem; align-items:center;
+  }
+
+  /* ============ LEFT CONTENT ============ */
+  .hero-left { position:relative; }
+  .fade-item { opacity:0; transform:translateY(26px); animation:fadeUp .9s cubic-bezier(.2,.7,.2,1) forwards; }
+  @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+
+  .badge {
+    display:inline-flex; align-items:center; gap:0.6rem;
+    font-size:0.8rem; font-weight:500; color:var(--muted-2);
+    background:rgba(255,255,255,0.05); border:1px solid var(--glass-border);
+    padding:0.5rem 1.05rem; border-radius:50px; margin-bottom:1.55rem;
+    backdrop-filter:blur(10px);
+    box-shadow:0 0 24px rgba(30,144,255,0.08);
+    animation-delay:.1s;
+  }
+  .badge .dot {
+    width:8px; height:8px; border-radius:50%; background:#22C55E;
+    box-shadow:0 0 10px #22C55E, 0 0 22px rgba(34,197,94,0.5);
+    animation:pulse 2.2s ease-in-out infinite;
+    flex-shrink:0;
+  }
+  @keyframes pulse { 0%,100%{opacity:1; transform:scale(1);} 50%{opacity:.55; transform:scale(.82);} }
+
+  .headline {
+    font-size:clamp(2.7rem,5.1vw,4.15rem); font-weight:800; line-height:1.05;
+    letter-spacing:-2px; margin-bottom:1.35rem; animation-delay:.22s;
+  }
+  .headline .grad {
+    background:linear-gradient(110deg,var(--blue) 0%,#4aa8ff 38%,var(--cyan) 100%);
+    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+    filter:drop-shadow(0 0 26px rgba(30,144,255,0.28));
+  }
+  .headline .line { display:block; }
+
+  .typed-row {
+    font-size:1.32rem; font-weight:600; color:var(--cyan);
+    height:2.3rem; margin-bottom:1.25rem; display:flex; align-items:center;
+    text-shadow:0 0 22px rgba(0,212,255,0.35);
+    animation-delay:.36s;
+  }
+  .typed-row .typed-label { color:var(--muted); font-weight:500; font-size:1.1rem; margin-right:0.4rem; }
+  .typed-row .cursor {
+    display:inline-block; width:2px; height:1.25em; margin-left:5px; border-radius:2px;
+    background:var(--cyan); box-shadow:0 0 12px var(--cyan);
+    animation:blink .85s step-end infinite;
+  }
+  @keyframes blink { 50%{opacity:0} }
+
+  .desc {
+    font-size:1.05rem; color:var(--muted); max-width:530px; line-height:1.75;
+    margin-bottom:2.1rem; font-weight:400; animation-delay:.5s;
+  }
+
+  .cta-row { display:flex; gap:1rem; flex-wrap:wrap; animation-delay:.64s; }
+  .btn {
+    display:inline-flex; align-items:center; gap:0.55rem; padding:1rem 1.75rem; border-radius:14px;
+    font-weight:600; font-size:0.98rem; text-decoration:none; cursor:pointer; border:none;
+    transition:transform .25s cubic-bezier(.2,.7,.2,1), box-shadow .25s, background .25s;
+  }
+  .btn-primary {
+    background:linear-gradient(135deg,var(--blue),#0a6fd8 58%,var(--cyan));
+    color:#fff; box-shadow:0 14px 38px rgba(30,144,255,0.45), inset 0 1px 0 rgba(255,255,255,0.28);
+  }
+  .btn-primary:hover { transform:translateY(-3px) scale(1.02); box-shadow:0 20px 50px rgba(30,144,255,0.55); }
+  .btn-primary:active { transform:translateY(0) scale(.98); }
+  .btn-ghost {
+    background:rgba(255,255,255,0.04); color:var(--white); border:1px solid var(--glass-border);
+    backdrop-filter:blur(12px);
+  }
+  .btn-ghost:hover { transform:translateY(-3px); background:rgba(255,255,255,0.08); border-color:rgba(30,144,255,0.45); box-shadow:0 14px 36px rgba(0,0,0,0.3), 0 0 30px rgba(30,144,255,0.12); }
+
+  /* ============ RIGHT VISUALS ============ */
+  .hero-right { position:relative; height:640px; animation-delay:.4s; }
+
+  /* orbital dashed rings */
+  .orbit-ring { position:absolute; top:50%; left:50%; border-radius:50%; border:1px dashed rgba(30,144,255,0.16); transform:translate(-50%,-50%); pointer-events:none; }
+  .ring-1 { width:290px; height:290px; animation:ringSpin 42s linear infinite; }
+  .ring-2 { width:420px; height:420px; animation:ringSpinRev 60s linear infinite; border-color:rgba(0,212,255,0.12); }
+  .ring-3 { width:560px; height:560px; animation:ringSpin 78s linear infinite; border-color:rgba(255,255,255,0.06); }
+  .ring-1::after, .ring-2::after, .ring-3::after {
+    content:''; position:absolute; top:-3px; left:50%; width:6px; height:6px; border-radius:50%;
+    background:var(--cyan); box-shadow:0 0 12px var(--cyan);
+  }
+  .ring-2::after { background:var(--blue); box-shadow:0 0 12px var(--blue); }
+  .ring-3::after { background:rgba(255,255,255,0.5); box-shadow:0 0 10px rgba(255,255,255,0.4); }
+  @keyframes ringSpin { from{ transform:translate(-50%,-50%) rotate(0deg); } to{ transform:translate(-50%,-50%) rotate(360deg); } }
+  @keyframes ringSpinRev { from{ transform:translate(-50%,-50%) rotate(0deg); } to{ transform:translate(-50%,-50%) rotate(-360deg); } }
+
+  /* tech icons floating */
+  .tech-ico {
+    position:absolute; width:48px; height:48px; border-radius:14px; z-index:8;
+    display:grid; place-items:center;
+    background:rgba(10,22,52,0.85); border:1px solid var(--glass-border);
+    backdrop-filter:blur(12px); box-shadow:0 10px 30px rgba(0,0,0,0.5), 0 0 0 rgba(30,144,255,0);
+    animation:float 6s ease-in-out infinite;
+    transition:transform .3s, box-shadow .3s, border-color .3s;
+  }
+  .tech-ico:hover {
+    transform:scale(1.16) !important; border-color:rgba(30,144,255,0.7);
+    box-shadow:0 14px 36px rgba(0,0,0,0.55), 0 0 30px rgba(30,144,255,0.35);
+  }
+  .tech-ico img { width:24px; height:24px; object-fit:contain; filter:drop-shadow(0 3px 8px rgba(0,0,0,0.35)); }
+  @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-14px);} }
+
+  .ti-1 { top:3%;    left:44%; animation-delay:0s;   }
+  .ti-2 { top:22%;   left:3%;  animation-delay:-1.4s;}
+  .ti-3 { top:27%;   right:1%; animation-delay:-2.8s;}
+  .ti-4 { bottom:30%; left:0;  animation-delay:-4.2s;}
+  .ti-5 { bottom:5%;  left:36%; animation-delay:-1s;  }
+  .ti-6 { bottom:18%; right:3%; animation-delay:-3.2s;}
+  .ti-7 { top:46%;   left:-1%; animation-delay:-5s;   }
+  .ti-8 { top:8%;    right:20%; animation-delay:-2.2s;}
+
+  /* connecting lines */
+  .conn { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:4; }
+  .conn line { stroke-dasharray:6 5; animation:dashFlow 3.4s linear infinite; }
+  .conn line.l2 { animation-delay:.55s; }
+  .conn line.l3 { animation-delay:1.1s; }
+  .conn line.l4 { animation-delay:1.65s; }
+  .conn line.l5 { animation-delay:2.2s; }
+  .conn line.l6 { animation-delay:2.75s; }
+  .conn line.l7 { animation-delay:1.3s; }
+  @keyframes dashFlow { to { stroke-dashoffset:-22; } }
+
+  .node-dot { position:absolute; width:7px; height:7px; border-radius:50%; background:var(--cyan); box-shadow:0 0 14px var(--cyan), 0 0 30px rgba(0,212,255,0.5); z-index:5; animation:nodePulse 3s ease-in-out infinite; }
+  .nd-1 { top:50%; left:50%; } .nd-2 { top:12%; left:50%; animation-delay:.6s; }
+  .nd-3 { top:50%; left:7%;  animation-delay:1.2s; } .nd-4 { bottom:6%; left:40%; animation-delay:1.8s; }
+  .nd-5 { top:28%; right:4%; animation-delay:2.4s; } .nd-6 { bottom:30%; right:4%; animation-delay:.9s; }
+  @keyframes nodePulse { 0%,100%{ transform:scale(1); opacity:.9; } 50%{ transform:scale(1.8); opacity:.35; } }
+
+  /* ---- code editor card ---- */
+  .code-card {
+    position:absolute; top:14%; left:7%; width:310px; z-index:9;
+    background:rgba(10,21,48,0.86);
+    border:1px solid rgba(30,144,255,0.32); border-radius:18px;
+    backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+    box-shadow:0 28px 70px rgba(0,0,0,0.55), 0 0 50px rgba(30,144,255,0.13), inset 0 1px 0 rgba(255,255,255,0.06);
+    padding:1rem 1.1rem; font-family:'JetBrains Mono',monospace; font-size:0.66rem; line-height:1.72; color:#93C5FD;
+    animation:float 7s ease-in-out infinite;
+    transition:transform .4s, box-shadow .4s;
+  }
+  .code-card:hover { transform:translateY(-6px) scale(1.02); box-shadow:0 34px 80px rgba(0,0,0,0.6), 0 0 70px rgba(30,144,255,0.2); }
+  .code-card .cc-head {
+    display:flex; align-items:center; gap:6px; padding-bottom:0.65rem; margin-bottom:0.7rem;
+    border-bottom:1px solid rgba(255,255,255,0.07);
+  }
+  .code-card .cc-head .dot { width:9px; height:9px; border-radius:50%; }
+  .code-card .cc-head .dot:nth-child(1){ background:#FF5F56; box-shadow:0 0 8px rgba(255,95,86,.6); }
+  .code-card .cc-head .dot:nth-child(2){ background:#FFBD2E; box-shadow:0 0 8px rgba(255,189,46,.6); }
+  .code-card .cc-head .dot:nth-child(3){ background:#27C93F; box-shadow:0 0 8px rgba(39,201,63,.6); }
+  .code-card .cc-head .title { margin-left:0.3rem; font-size:0.6rem; color:#64748B; }
+  .cc-body { position:relative; }
+  .cc-body::before {
+    content:'1  2  3  4  5  6  7  8  9 10'; position:absolute; left:-0.4rem; top:0; width:1.6rem;
+    text-align:right; color:rgba(100,116,139,0.55); font-size:0.6rem; line-height:1.85; white-space:pre;
+    border-right:1px solid rgba(255,255,255,0.06); padding-right:0.45rem; transform:translateX(-0.75rem);
+  }
+  .cc-body .code-line { white-space:pre; padding-left:1.6rem; }
+  .kw { color:var(--cyan); } .fn { color:#FFD479; } .st { color:#7EE787; }
+  .co { color:#64748B; font-style:italic; } .pr { color:#F472B6; } .num { color:#F472B6; }
+  .gutter { color:rgba(100,116,139,0.5); }
+  .hl { background:linear-gradient(90deg, rgba(30,144,255,0.14), transparent); }
+
+  /* ---- what we do card ---- */
+  .what-card {
+    position:absolute; right:2.5%; top:47%; width:302px; z-index:9;
+    background:rgba(13,27,60,0.72);
+    border:1px solid rgba(255,255,255,0.12); border-radius:20px;
+    backdrop-filter:blur(20px) saturate(1.3); -webkit-backdrop-filter:blur(20px) saturate(1.3);
+    box-shadow:0 26px 66px rgba(0,0,0,0.5), 0 0 44px rgba(30,144,255,0.1), inset 0 1px 0 rgba(255,255,255,0.08);
+    padding:1.25rem 1.35rem;
+    animation:float 8s ease-in-out infinite; animation-delay:-3s;
+    transition:transform .4s, box-shadow .4s;
+  }
+  .what-card:hover { transform:translateY(-6px) scale(1.02); box-shadow:0 32px 76px rgba(0,0,0,0.6), 0 0 60px rgba(30,144,255,0.18); }
+  .what-card h4 {
+    display:flex; align-items:center; gap:0.5rem;
+    font-size:0.86rem; font-weight:700; margin-bottom:0.9rem; letter-spacing:0.6px;
+    color:var(--white);
+  }
+  .what-card h4::before { content:''; width:8px; height:8px; border-radius:3px; background:linear-gradient(135deg,var(--blue),var(--cyan)); box-shadow:0 0 10px var(--blue); }
+  .what-card ul { list-style:none; }
+  .what-card li {
+    display:flex; align-items:center; gap:0.7rem; padding:0.47rem 0;
+    font-size:0.79rem; color:var(--muted-2); font-weight:500;
+    border-bottom:1px solid rgba(255,255,255,0.055); transition:color .2s, transform .2s;
+  }
+  .what-card li:last-child { border-bottom:none; }
+  .what-card li:hover { color:#fff; transform:translateX(3px); }
+  .what-card .wi {
+    width:28px; height:28px; border-radius:9px; display:grid; place-items:center; flex-shrink:0;
+    background:rgba(30,144,255,0.14); border:1px solid rgba(30,144,255,0.22);
+    color:var(--cyan); transition:background .2s, box-shadow .2s;
+  }
+  .what-card li:hover .wi { background:rgba(30,144,255,0.28); box-shadow:0 0 16px rgba(30,144,255,0.3); }
+  .what-card .wi svg { width:13px; height:13px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+
+  /* =====================================================
+     SKYLINE & WATER
+  ===================================================== */
+  .skyline-zone { position:absolute; bottom:0; left:0; right:0; z-index:1; pointer-events:none; }
+  .skyline { position:relative; }
+  .skyline svg { display:block; width:100%; height:auto; }
+
+  .water-glow {
+    position:absolute; bottom:-2px; left:0; right:0; height:130px; pointer-events:none;
+    background:linear-gradient(180deg, rgba(7,18,38,0.92), var(--bg) 88%);
+    overflow:hidden;
+  }
+  .water-glow::before {
+    content:''; position:absolute; inset:0;
+    background:
+      repeating-linear-gradient(90deg,
+        transparent 0 46px,
+        rgba(30,144,255,0.07) 46px 48px,
+        transparent 48px 96px,
+        rgba(0,212,255,0.04) 96px 97px,
+        transparent 97px 140px);
+    animation:waterShimmer 5.5s ease-in-out infinite alternate;
+  }
+  .water-glow::after {
+    content:''; position:absolute; inset:0;
+    background:
+      repeating-linear-gradient(0deg,
+        transparent 0 18px,
+        rgba(30,144,255,0.045) 18px 19px,
+        transparent 19px 46px);
+  }
+  @keyframes waterShimmer {
+    from { transform:translateX(0); opacity:.7; }
+    to   { transform:translateX(24px); opacity:1; }
+  }
+
+  /* reflection streaks under network lines */
+  .reflection { position:absolute; left:0; right:0; bottom:0; height:120px; overflow:hidden; pointer-events:none; }
+  .reflection span {
+    position:absolute; bottom:0; width:2px; border-radius:2px; opacity:.25;
+    background:linear-gradient(to top, rgba(0,212,255,0.7), transparent);
+    animation:reflectFlicker 4s ease-in-out infinite alternate;
+  }
+  @keyframes reflectFlicker { from{ opacity:0.12; height:40px; } to{ opacity:0.42; height:90px; } }
+  .re-1 { left:24%;  animation-delay:0s;   }
+  .re-2 { left:28%;  animation-delay:.8s;  }
+  .re-3 { left:49%;  animation-delay:1.5s; }
+  .re-4 { left:53%;  animation-delay:2.3s; }
+  .re-5 { left:57%;  animation-delay:.4s;  }
+  .re-6 { left:72%;  animation-delay:1.9s; }
+
+  /* fog */
+  .fog {
+    position:absolute; bottom:0; left:0; right:0; height:38%; pointer-events:none; z-index:2;
+    background:
+      radial-gradient(ellipse at 22% 100%, rgba(8,20,48,0.92), transparent 65%),
+      radial-gradient(ellipse at 62% 100%, rgba(5,11,29,0.75), transparent 60%),
+      radial-gradient(ellipse at 88% 100%, rgba(8,20,48,0.85), transparent 62%);
+    filter:blur(7px);
+    animation:fogDrift 16s ease-in-out infinite alternate;
+  }
+  @keyframes fogDrift {
+    0%   { transform:translateX(-14px) scaleY(1);    opacity:.85; }
+    50%  { transform:translateX(10px)  scaleY(1.12); opacity:1; }
+    100% { transform:translateX(-4px)  scaleY(1);    opacity:.9; }
+  }
+
+  /* scroll indicator */
+  .scroll-ind {
+    position:absolute; bottom:1.55rem; left:50%; z-index:12;
+    display:flex; flex-direction:column; align-items:center; gap:0.55rem;
+    color:var(--muted); font-size:0.68rem; letter-spacing:3px; text-transform:uppercase;
+    text-decoration:none; font-weight:500;
+    animation:bounce 2.2s cubic-bezier(.4,0,.2,1) infinite;
+  }
+  .scroll-ind .mouse {
+    width:22px; height:34px; border:1.5px solid rgba(148,163,184,0.5); border-radius:12px;
+    display:flex; justify-content:center; padding-top:5px;
+  }
+  .scroll-ind .mouse .wheel {
+    width:2.5px; height:6px; border-radius:2px; background:var(--cyan);
+    box-shadow:0 0 8px var(--cyan); animation:wheel 1.8s ease-in-out infinite;
+  }
+  @keyframes wheel { 0%{transform:translateY(0);opacity:1;} 70%{transform:translateY(9px);opacity:0;} 100%{transform:translateY(0);opacity:0;} }
+  @keyframes bounce {
+    0%,100% { transform:translate(-50%,0); }
+    50%     { transform:translate(-50%,9px); }
+  }
+
+  /* =====================================================
+     TECH BAR
+  ===================================================== */
+  .tech-bar {
+    position:relative; z-index:11; padding:5rem 2rem 4.5rem;
+    background:linear-gradient(180deg, transparent 0%, var(--bg) 26%);
+  }
+  .tech-bar h3 {
+    text-align:center; font-size:1.28rem; font-weight:700; color:var(--muted-2);
+    letter-spacing:1.2px; text-transform:uppercase; margin-bottom:0.5rem;
+  }
+  .tech-bar h3 span { background:linear-gradient(90deg,var(--blue),var(--cyan)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .tech-bar .sub { text-align:center; font-size:0.84rem; color:var(--muted); margin-bottom:2.4rem; }
+  .tech-bar-inner { max-width:920px; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:center; gap:1.15rem; }
+  .tech-chip {
+    display:inline-flex; align-items:center; gap:0.55rem; padding:0.72rem 1.25rem; border-radius:15px;
+    background:rgba(255,255,255,0.045); border:1px solid rgba(255,255,255,0.1);
+    backdrop-filter:blur(10px); font-weight:600; font-size:0.9rem; color:#E2E8F0;
+    box-shadow:0 6px 20px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.04);
+    transition:transform .28s cubic-bezier(.2,.7,.2,1), border-color .28s, box-shadow .28s;
+    cursor:default;
+  }
+  .tech-chip:hover {
+    transform:translateY(-5px) scale(1.03);
+    border-color:rgba(30,144,255,0.55);
+    box-shadow:0 14px 34px rgba(0,0,0,0.35), 0 0 30px rgba(30,144,255,0.15);
+  }
+  .tech-chip img { width:20px; height:20px; object-fit:contain; }
+
+  /* =====================================================
+     RESPONSIVE
+  ===================================================== */
+  @media (max-width:1080px){
+    .hero-inner{ grid-template-columns:1fr; gap:3rem; }
+    .hero-left{ text-align:center; }
+    .badge{ margin-left:auto; margin-right:auto; }
+    .desc{ margin-left:auto; margin-right:auto; }
+    .cta-row{ justify-content:center; }
+    .hero-right{ height:560px; margin-top:0.5rem; }
+    .code-card{ left:10%; }
+    .what-card{ right:6%; }
+  }
+  @media (max-width:768px){
+    .navbar{ padding:0.6rem 0.7rem 0.6rem 1.1rem; }
+    .nav-links{ display:none; }
+    .nav-btn{ font-size:0.82rem; padding:0.6rem 1.1rem; }
+    .hero{ padding:7rem 1.1rem 6rem; }
+    .headline{ letter-spacing:-1px; }
+    .hero-right{ height:480px; transform:scale(0.86); transform-origin:top center; }
+    .code-card{ width:250px; }
+    .what-card{ width:250px; }
+    .tech-bar{ padding:4rem 1.2rem 3.5rem; }
+    .moon{ opacity:.5; }
+  }
+  @media (max-width:480px){
+    .hero-right{ height:440px; transform:scale(0.74); }
+    .headline{ font-size:2.4rem; }
+    .typed-row{ font-size:1.08rem; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <button class="nav-btn">Start a Project →</button>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+
+    <!-- background layers -->
+    <div class="grid-overlay"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="moon"></div>
+    <canvas id="particles"></canvas>
+
+    <!-- holographic cloud icons -->
+    <div class="holo-cloud hc-1">
+      <svg viewBox="0 0 64 64" fill="none"><path d="M18 40a8 8 0 1 1 2-15.7A11 11 0 0 1 42 24a8.5 8.5 0 0 1 1 16.9H18Z" stroke="#1E90FF" stroke-width="1.4" stroke-linejoin="round"/><path d="M32 26v-6M28 21l4-3 4 3" stroke="#00D4FF" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="holo-cloud hc-2">
+      <svg viewBox="0 0 64 64" fill="none"><path d="M18 40a8 8 0 1 1 2-15.7A11 11 0 0 1 42 24a8.5 8.5 0 0 1 1 16.9H18Z" stroke="#00D4FF" stroke-width="1.4" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="holo-cloud hc-3">
+      <svg viewBox="0 0 64 64" fill="none"><path d="M18 40a8 8 0 1 1 2-15.7A11 11 0 0 1 42 24a8.5 8.5 0 0 1 1 16.9H18Z" stroke="#1E90FF" stroke-width="1.4" stroke-linejoin="round"/></svg>
+    </div>
+
+    <!-- animated data streams -->
+    <div class="streams">
+      <div class="stream s1"></div>
+      <div class="stream s2"></div>
+      <div class="stream s3"></div>
+      <div class="stream s4"></div>
+      <div class="stream s5"></div>
+      <div class="stream s6"></div>
+    </div>
+
+    <div class="hero-inner">
+
+      <!-- ====== LEFT ====== -->
+      <div class="hero-left">
+        <div class="badge fade-item"><span class="dot"></span> Building the future, one line of code at a time.</div>
+
+        <h1 class="headline fade-item">
+          <span class="line">Building <span class="grad">Digital</span></span>
+          <span class="line"><span class="grad">Solutions</span></span>
+          <span class="line">That Drive</span>
+          <span class="line">Business Forward</span>
+        </h1>
+
+        <div class="typed-row fade-item">
+          <span class="typed-label">We build</span>
+          <span id="typed"></span><span class="cursor"></span>
+        </div>
+
+        <p class="desc fade-item">We help businesses transform ideas into powerful digital products using modern technologies.</p>
+
+        <div class="cta-row fade-item">
+          <a href="#" class="btn btn-primary">Start Your Project →</a>
+          <a href="#" class="btn btn-ghost">View Our Portfolio</a>
+        </div>
+      </div>
+
+      <!-- ====== RIGHT ====== -->
+      <div class="hero-right fade-item">
+
+        <!-- orbital rings -->
+        <div class="orbit-ring ring-1"></div>
+        <div class="orbit-ring ring-2"></div>
+        <div class="orbit-ring ring-3"></div>
+
+        <!-- connecting network lines -->
+        <svg class="conn" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <line class="l1" x1="44" y1="14"  x2="82" y2="30" stroke="rgba(30,144,255,0.4)"   stroke-width="0.22"/>
+          <line class="l2" x1="82" y1="30"  x2="30" y2="48" stroke="rgba(30,144,255,0.32)"   stroke-width="0.22"/>
+          <line class="l3" x1="30" y1="48"  x2="6"  y2="20" stroke="rgba(30,144,255,0.3)"    stroke-width="0.22"/>
+          <line class="l4" x1="30" y1="48"  x2="96" y2="70" stroke="rgba(0,212,255,0.28)"    stroke-width="0.22"/>
+          <line class="l5" x1="30" y1="48"  x2="0"  y2="74" stroke="rgba(30,144,255,0.26)"   stroke-width="0.22"/>
+          <line class="l6" x1="96" y1="70"  x2="36" y2="94" stroke="rgba(0,212,255,0.24)"    stroke-width="0.22"/>
+          <line class="l7" x1="12" y1="6"   x2="44" y2="14" stroke="rgba(30,144,255,0.26)"   stroke-width="0.22"/>
+        </svg>
+
+        <!-- glowing network nodes -->
+        <div class="node-dot nd-1"></div>
+        <div class="node-dot nd-2"></div>
+        <div class="node-dot nd-3"></div>
+        <div class="node-dot nd-4"></div>
+        <div class="node-dot nd-5"></div>
+        <div class="node-dot nd-6"></div>
+
+        <!-- floating technology icons -->
+        <div class="tech-ico ti-1" title="React">
+          <img src="https://cdn.simpleicons.org/react/61DAFB" alt="React" />
+        </div>
+        <div class="tech-ico ti-2" title="TypeScript">
+          <img src="https://cdn.simpleicons.org/typescript/3178C6" alt="TypeScript" />
+        </div>
+        <div class="tech-ico ti-3" title="Node.js">
+          <img src="https://cdn.simpleicons.org/nodedotjs/5FA04E" alt="Node.js" />
+        </div>
+        <div class="tech-ico ti-4" title="Flutter">
+          <img src="https://cdn.simpleicons.org/flutter/02569B" alt="Flutter" />
+        </div>
+        <div class="tech-ico ti-5" title="Python">
+          <img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" />
+        </div>
+        <div class="tech-ico ti-6" title="Docker">
+          <img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker" />
+        </div>
+        <div class="tech-ico ti-7" title="Supabase">
+          <img src="https://cdn.simpleicons.org/supabase/3FCF8E" alt="Supabase" />
+        </div>
+        <div class="tech-ico ti-8" title="Next.js">
+          <img src="https://cdn.simpleicons.org/nextdotjs/FFFFFF" alt="Next.js" />
+        </div>
+
+        <!-- glowing code editor -->
+        <div class="code-card">
+          <div class="cc-head">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="title">api/projects.js</span>
+          </div>
+          <div class="cc-body">
+            <div class="code-line"><span class="co">// real-time data pipeline</span></div>
+            <div class="code-line"><span class="kw">import</span> { createClient } <span class="kw">from</span> <span class="st">"@supabase/supabase-js"</span></div>
+            <div class="code-line hl"><span class="kw">const</span> <span class="fn">supabase</span> = <span class="fn">createClient</span>(<span class="pr">url</span>, <span class="pr">key</span>)</div>
+            <div class="code-line">&nbsp;</div>
+            <div class="code-line"><span class="kw">export async</span> <span class="kw">function</span> <span class="fn">GET</span>() {</div>
+            <div class="code-line">&nbsp;&nbsp;<span class="kw">const</span> { <span class="pr">data</span> } = <span class="kw">await</span> <span class="fn">supabase</span>.<span class="fn">from</span>(<span class="st">"products"</span>)</div>
+            <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;.<span class="fn">select</span>(<span class="st">"*"</span>).<span class="fn">order</span>(<span class="st">"created_at"</span>)</div>
+            <div class="code-line">&nbsp;&nbsp;<span class="kw">return</span> <span class="fn">Response</span>.<span class="fn">json</span>({ <span class="pr">data</span> })</div>
+            <div class="code-line">}</div>
+          </div>
+        </div>
+
+        <!-- What We Do -->
+        <div class="what-card">
+          <h4>What We Do</h4>
+          <ul>
+            <li><span class="wi"><svg viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/><path d="M13 4l-2 16"/></svg></span> Custom Software Development</li>
+            <li><span class="wi"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18"/><path d="M12 3a15 15 0 0 0 0 18"/></svg></span> Web Applications</li>
+            <li><span class="wi"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span> Mobile Applications</li>
+            <li><span class="wi"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.4"/><path d="M3 20c0-3.4 2.8-5.5 6-5.5s6 2.1 6 5.5"/><circle cx="17" cy="9" r="2.6"/><path d="M16 15.2c2.8.4 5 2.3 5 4.8"/></svg></span> HR & Payroll Systems</li>
+            <li><span class="wi"><svg viewBox="0 0 24 24"><path d="M7 17a4.5 4.5 0 1 1 1.2-8.9A6 6 0 0 1 19.5 9.5 4.8 4.8 0 0 1 18 19H7Z"/></svg></span> Cloud Solutions</li>
+            <li><span class="wi"><svg viewBox="0 0 24 24"><path d="M14 5l5 5-9.5 9.5H4.5V14L14 5Z"/><path d="M12 7l5 5"/></svg></span> UI/UX Design</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====== CAPE TOWN SKYLINE ====== -->
+    <div class="skyline-zone">
+      <div class="skyline">
+        <svg viewBox="0 0 1440 300" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#0d1c42" stop-opacity="0.65"/>
+              <stop offset="100%" stop-color="#050B1D" stop-opacity="1"/>
+            </linearGradient>
+            <linearGradient id="mountGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#122454"/>
+              <stop offset="100%" stop-color="#081226"/>
+            </linearGradient>
+            <linearGradient id="mountGrad2" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#0e1e46"/>
+              <stop offset="100%" stop-color="#071226"/>
+            </linearGradient>
+            <linearGradient id="tableCloth" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#ffffff" stop-opacity="0.55"/>
+              <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+            </linearGradient>
+            <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="2.4" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="lineGlow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="1.2" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+
+          <!-- water -->
+          <rect x="0" y="210" width="1440" height="90" fill="url(#water)"/>
+
+          <!-- far hills -->
+          <path d="M0,210 C120,178 240,165 360,172 C480,180 600,168 720,175 C840,182 960,171 1080,178 C1200,186 1320,175 1440,182 L1440,210 L0,210 Z" fill="#0a1735" opacity="0.7"/>
+
+          <!-- Lion's Head -->
+          <path d="M20,210 C110,192 180,182 230,168 C262,158 282,146 288,142 C316,156 340,178 366,190 L366,210 Z" fill="url(#mountGrad2)"/>
+          <!-- Lion's Head glow rim -->
+          <path d="M230,168 C262,158 282,146 288,142 C298,148 306,152 312,156" fill="none" stroke="rgba(0,212,255,0.35)" stroke-width="1" filter="url(#lineGlow)"/>
+
+          <!-- Signal Hill -->
+          <path d="M288,142 C330,162 376,158 420,150 C446,146 462,138 480,132 L480,210 L288,210 Z" fill="url(#mountGrad2)" opacity="0.92"/>
+
+          <!-- Table Mountain -->
+          <path d="M480,132 L520,104 C560,94 900,92 966,98 C1010,104 1050,122 1090,150 L1090,210 L480,210 Z" fill="url(#mountGrad)"/>
+          <!-- Table Mountain flat-top highlight -->
+          <line x1="522" y1="104" x2="962" y2="98" stroke="rgba(30,144,255,0.4)" stroke-width="1.4" filter="url(#lineGlow)"/>
+          <!-- table cloth cloud -->
+          <path d="M520,100 C560,128 640,148 760,146 C880,144 970,132 1040,138 C1080,142 1100,150 1105,154 L1090,150 C1050,122 1010,104 966,98 C900,92 560,94 520,104 C510,106 508,104 508,102 Z" fill="url(#tableCloth)" opacity="0.6"/>
+          <ellipse cx="800" cy="132" rx="340" ry="20" fill="rgba(255,255,255,0.08)" filter="url(#softGlow)"/>
+
+          <!-- Devils Peak -->
+          <path d="M1090,150 C1130,118 1192,102 1254,114 C1316,126 1390,152 1440,178 L1440,210 L1090,210 Z" fill="url(#mountGrad2)"/>
+
+          <!-- city buildings -->
+          <g fill="#0d1c40" opacity="0.95">
+            <rect x="160" y="178" width="34" height="32"/>
+            <rect x="204" y="168" width="42" height="42"/>
+            <rect x="372" y="170" width="30" height="40"/>
+            <rect x="412" y="160" width="38" height="50"/>
+            <rect x="462" y="176" width="26" height="34"/>
+            <rect x="600" y="168" width="44" height="42"/>
+            <rect x="654" y="150" width="36" height="60"/>
+            <rect x="700" y="160" width="52" height="50"/>
+            <rect x="762" y="172" width="30" height="38"/>
+            <rect x="920" y="158" width="40" height="52"/>
+            <rect x="970" y="170" width="34" height="40"/>
+            <rect x="1120" y="164" width="44" height="46"/>
+            <rect x="1174" y="174" width="30" height="36"/>
+            <rect x="1274" y="176" width="38" height="34"/>
+            <rect x="1322" y="168" width="42" height="42"/>
+          </g>
+          <!-- building glows -->
+          <g fill="#00d4ff" opacity="0.55" filter="url(#lineGlow)">
+            <rect x="214" y="176" width="4" height="4"/><rect x="224" y="188" width="4" height="4"/>
+            <rect x="420" y="170" width="4" height="4"/><rect x="434" y="182" width="4" height="4"/>
+            <rect x="662" y="160" width="4" height="4"/><rect x="674" y="172" width="4" height="4"/>
+            <rect x="710" y="170" width="4" height="4"/><rect x="728" y="182" width="4" height="4"/>
+            <rect x="928" y="168" width="4" height="4"/><rect x="940" y="180" width="4" height="4"/>
+            <rect x="1128" y="174" width="4" height="4"/><rect x="1144" y="186" width="4" height="4"/>
+            <rect x="1330" y="178" width="4" height="4"/><rect x="1344" y="188" width="4" height="4"/>
+          </g>
+          <g fill="#1e90ff" opacity="0.3">
+            <rect x="204" y="192" width="4" height="4"/><rect x="662" y="184" width="4" height="4"/><rect x="928" y="190" width="4" height="4"/>
+          </g>
+
+          <!-- digital network lines over skyline -->
+          <g stroke="#1e90ff" stroke-width="0.8" opacity="0.6" fill="none" filter="url(#lineGlow)">
+            <path d="M180,190 C320,145 470,125 640,110 C800,96 960,112 1120,150 C1240,180 1360,190 1440,188"/>
+            <path d="M300,196 C480,168 720,145 900,138 C1080,130 1260,160 1430,182"/>
+          </g>
+          <!-- data packets on network -->
+          <g fill="#00d4ff" filter="url(#lineGlow)">
+            <circle cx="330" cy="188" r="2.2"><animate attributeName="cx" values="330;900" dur="6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="6s" repeatCount="indefinite"/></circle>
+            <circle cx="520" cy="128" r="2.2"><animate attributeName="cx" values="520;1120" dur="7s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="7s" repeatCount="indefinite"/></circle>
+            <circle cx="750" cy="174" r="2.2"><animate attributeName="cx" values="750;180" dur="5.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="5.5s" repeatCount="indefinite"/></circle>
+            <circle cx="880" cy="142" r="2.2"><animate attributeName="cx" values="880;520" dur="6.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="6.5s" repeatCount="indefinite"/></circle>
+          </g>
+          <!-- node pulses on network -->
+          <g fill="#1e90ff" opacity="0.85">
+            <circle cx="180" cy="190" r="2.5"><animate attributeName="r" values="2.5;4.5" dur="2.5s" repeatCount="indefinite"/></circle>
+            <circle cx="640" cy="110" r="2.5"><animate attributeName="r" values="2.5;4.5" dur="2.5s" begin=".6s" repeatCount="indefinite"/></circle>
+            <circle cx="1120" cy="150" r="2.5"><animate attributeName="r" values="2.5;4.5" dur="2.5s" begin="1.2s" repeatCount="indefinite"/></circle>
+            <circle cx="900" cy="138" r="2.5"><animate attributeName="r" values="2.5;4.5" dur="2.5s" begin="1.8s" repeatCount="indefinite"/></circle>
+          </g>
+
+          <!-- vertical pulses between network and city -->
+          <g stroke="rgba(30,144,255,0.35)" stroke-width="0.6" fill="none">
+            <path d="M640,110 L654,150"/>
+            <path d="M900,138 L920,158"/>
+            <path d="M1120,150 L1120,164"/>
+            <path d="M330,190 L372,170"/>
+          </g>
+
+          <!-- water line highlight -->
+          <line x1="0" y1="210" x2="1440" y2="210" stroke="rgba(0,212,255,0.28)" stroke-width="1" filter="url(#lineGlow)"/>
+        </svg>
+      </div>
+
+      <!-- water glow & reflections -->
+      <div class="water-glow"></div>
+      <div class="reflection">
+        <span class="re-1"></span><span class="re-2"></span><span class="re-3"></span>
+        <span class="re-4"></span><span class="re-5"></span><span class="re-6"></span>
+      </div>
+
+      <div class="fog"></div>
+    </div>
+
+    <!-- scroll indicator -->
+    <a href="#tech-bar" class="scroll-ind">
+      <span class="mouse"><span class="wheel"></span></span>
+      Scroll to Explore
+    </a>
+  </section>
+
+  <!-- ============ TECH BAR ============ -->
+  <div class="tech-bar" id="tech-bar">
+    <h3>Technologies <span>We Work With</span></h3>
+    <p class="sub">Modern tools, engineered for scale</p>
+    <div class="tech-bar-inner">
+      <span class="tech-chip"><img src="https://cdn.simpleicons.org/react/61DAFB" alt="React"/> React</span>
+      <span class="tech-chip"><img src="https://cdn.simpleicons.org/typescript/3178C6" alt="TypeScript"/> TypeScript</span>
+      <span class="tech-chip"><img src="https://cdn.simpleicons.org/nodedotjs/5FA04E" alt="Node.js"/> Node.js</span>
+      <span class="tech-chip"><img src="https://cdn.simpleicons.org/flutter/02569B" alt="Flutter"/> Flutter</span>
+      <span class="tech-chip"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python"/> Python</span>
+      <span class="tech-chip"><img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker"/> Docker</span>
+      <span class="tech-chip"><img src="https://cdn.simpleicons.org/supabase/3FCF8E" alt="Supabase"/> Supabase</span>
+    </div>
+  </div>
+
+<script>
+  // ============ TYPING EFFECT ============
+  const words = ["Web Applications","Mobile Applications","HR Systems","Business Software","Cloud Solutions"];
+  let wi = 0, ci = 0, del = false;
+  const el = document.getElementById('typed');
+  function type(){
+    const word = words[wi];
+    el.textContent = word.slice(0, ci);
+    if (!del && ci < word.length) { ci++; setTimeout(type, 68); }
+    else if (!del && ci === word.length) { del = true; setTimeout(type, 1850); }
+    else if (del && ci > 0) { ci--; setTimeout(type, 32); }
+    else { del = false; wi = (wi + 1) % words.length; setTimeout(type, 380); }
+  }
+  setTimeout(type, 900);
+
+  // ============ NETWORK PARTICLES ============
+  const canvas = document.getElementById('particles');
+  const ctx = canvas.getContext('2d');
+  let W, H, pts = [];
+  const CONN = 118;
+
+  function resize(){
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+    const count = Math.min(85, Math.floor((W * H) / 26000));
+    pts = Array.from({ length: count }, () => ({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      vx: (Math.random() - 0.5) * 0.32,
+      vy: (Math.random() - 0.5) * 0.32,
+      r: Math.random() * 1.5 + 0.5,
+      c: Math.random() > 0.45 ? '30,144,255' : '0,212,255'
+    }));
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  function tick(){
+    ctx.clearRect(0, 0, W, H);
+
+    // connection lines
+    for (let i = 0; i < pts.length; i++) {
+      for (let j = i + 1; j < pts.length; j++) {
+        const dx = pts[i].x - pts[j].x;
+        const dy = pts[i].y - pts[j].y;
+        const d = Math.hypot(dx, dy);
+        if (d < CONN) {
+          ctx.beginPath();
+          ctx.moveTo(pts[i].x, pts[i].y);
+          ctx.lineTo(pts[j].x, pts[j].y);
+          ctx.strokeStyle = `rgba(30,144,255,${(1 - d / CONN) * 0.22})`;
+          ctx.lineWidth = 0.6;
+          ctx.stroke();
+        }
+      }
+    }
+
+    // particles
+    for (const p of pts) {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > W) p.vx *= -1;
+      if (p.y < 0 || p.y > H) p.vy *= -1;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${p.c},0.65)`;
+      ctx.fill();
+    }
+    requestAnimationFrame(tick);
+  }
+  tick();
+
+  // ============ FALLBACK FOR OFFLINE LOGOS ============
+  document.querySelectorAll('.tech-ico img, .tech-chip img').forEach(img => {
+    img.addEventListener('error', () => {
+      const fallback = document.createElement('span');
+      fallback.className = 'logo-fallback';
+      fallback.style.cssText = 'font-weight:800;font-size:1rem;letter-spacing:-1px;color:inherit;';
+      fallback.textContent = img.alt.charAt(0).toUpperCase();
+      img.replaceWith(fallback);
+    });
+  });
+</script>
+<script>
+  // logo fallback styling injected by JS so chips still look good
+  const style = document.createElement('style');
+  style.textContent = '.logo-fallback{display:grid;place-items:center;width:20px;height:20px;color:#94A3B8;} .tech-ico .logo-fallback{width:24px;height:24px;}';
+  document.head.appendChild(style);
+</script>
+</body>
+</html>
