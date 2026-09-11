@@ -1,30 +1,63 @@
-# BlueBrains Software Website
+# BlueBrains Software — Landing Page
 
-Vue 3 + Vite website with a redesigned hero section matching the provided reference image (dark hero, floating code card, "What We Do" panel, typewriter subtitle).
+React 19 + Vite + Tailwind CSS website with a dark hero section (floating code card, “What We Do” panel, typewriter subtitle) matching the design reference.
 
-## Setup
+## Quick start
 
 ```bash
+# 1. Install dependencies
 npm install
-cp .env.example .env   # fill in your EmailJS credentials for the contact form
+
+# 2. Configure EmailJS (contact form)
+cp .env.example .env
+# Edit .env with your EmailJS service/template/public key
+
+# 3. Run the development server
 npm run dev
 ```
 
-Build for production:
+Open **http://localhost:5173**
 
-```bash
-npm run build
+## Scripts
+
+| Command         | Description                    |
+|-----------------|--------------------------------|
+| `npm run dev`   | Start Vite dev server          |
+| `npm run build` | Type-check + production build  |
+| `npm run preview` | Preview the production build |
+
+## Project structure
+
+```
+├── index.html
+├── package.json
+├── vite.config.ts
+├── tailwind.config.js
+├── postcss.config.js
+├── tsconfig.json
+├── .env.example
+├── src/
+│   ├── main.tsx
+│   ├── App.tsx
+│   ├── vite-env.d.ts
+│   ├── components/     # Hero, Navbar, Services, Contact, etc.
+│   ├── hooks/
+│   ├── styles/
+│   └── assets/
+└── bluebrains-hero-mockup.html   # Static design reference (optional)
 ```
 
-## What changed
+## Contact form
 
-- **`src/components/HeroCarousel.vue`** (new) — the dark gradient hero with dotted-grid background, animated badge, gradient headline, typewriter subtitle, code snippet card, floating tech chips, and "What We Do" panel — built to match the reference screenshot.
-- **`src/components/Navbar.vue`** (new) — floating pill navbar with Home / Services / Portfolio / About / Contact links and the gradient "Start a Project" button.
-- **`src/components/Footer.vue`**, **`SectionTitle.vue`**, **`ServiceCard.vue`** (new) — supporting components referenced by the existing views.
-- **`src/views/HomeView.vue`** — updated to render `<HeroCarousel />` directly (removed the duplicate wrapping `.hero` section).
-- All other views (`AboutView`, `ServicesView`, `ContactView`, `ResumeView`) are unchanged from what you provided.
+Uses [EmailJS](https://www.emailjs.com/). Set these in `.env`:
+
+- `VITE_EMAILJS_SERVICE_ID`
+- `VITE_EMAILJS_TEMPLATE_ID`
+- `VITE_EMAILJS_PUBLIC_KEY`
+- `VITE_EMAILJS_TO_EMAIL`
 
 ## Notes
 
-- The contact form uses `emailjs-com`; add your EmailJS service/template/public key to `.env` for it to send mail.
-- Everything is plain Vue SFCs with scoped CSS — no Tailwind or UI kit dependency.
+- All “Start a Project” / “Start Your Project” buttons link to `#contact`.
+- Dark navy theme with electric blue accents, Inter + JetBrains Mono fonts.
+- No backend required for the static site + EmailJS form.
