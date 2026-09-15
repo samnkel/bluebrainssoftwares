@@ -27,7 +27,7 @@ export default function ContactSection() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' })
   const [sending, setSending] = useState(false)
   const [sent, setSent] = useState(false)
-  const [error, setError] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
 
   const updateField = (field: keyof typeof form, value: string) => {
     setForm((prev) => ({ ...prev, [field]: value }))
@@ -37,7 +37,7 @@ export default function ContactSection() {
     e.preventDefault()
     setSending(true)
     setSent(false)
-    setError(false)
+    setErrorMessage('')
 
     try {
       await emailjs.send(
@@ -57,8 +57,11 @@ export default function ContactSection() {
       setTimeout(() => setSent(false), 5000)
     } catch (err) {
       console.error('EmailJS Error:', err)
-      setError(true)
-      setTimeout(() => setError(false), 5000)
+      const response = err as { status?: number; text?: string }
+      const detail = response.text || 'The email service could not send your message.'
+      const status = response.status ? ` (error ${response.status})` : ''
+      setErrorMessage(`${detail}${status}`)
+      setTimeout(() => setErrorMessage(''), 10000)
     } finally {
       setSending(false)
     }
@@ -189,9 +192,9 @@ className="resize-none rounded-[12px] border border-slate-200 bg-white px-4 py-3
                   Thank you! We will get back to you within 24 hours.
                 </div>
               )}
-              {error && (
+              {errorMessage && (
                 <div className="rounded-[10px] bg-red-500/10 px-4 py-3 text-center text-sm font-medium text-red-600">
-                  Something went wrong. Please try again later.
+                  {errorMessage}
                 </div>
               )}
             </form>
