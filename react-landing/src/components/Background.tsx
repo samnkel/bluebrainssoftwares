@@ -24,7 +24,7 @@ export default function Background() {
         <img
           src={bgImage}
           alt="Cape Town skyline background"
-          className="h-full w-full object-cover blur-sm brightness-90"
+          className="h-full w-full object-cover brightness-90"
         />
       </motion.div>
 
